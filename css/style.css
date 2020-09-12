@@ -1,0 +1,383 @@
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; 
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: "Poppins", sans-serif;
+}
+:root {
+  --fw-normal: 400;
+  --fw-bold: 700;
+
+  --clr-white: #ffffff;
+  --clr-yellow: #FDD023;
+  --clr-black: #000000;
+}
+html {
+  scrollbar-color: var(--clr-yellow) var(--clr-black);
+  scrollbar-width: thin; 
+}
+::-webkit-scrollbar {
+  background: var(--clr-black);
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--clr-yellow);
+  border-radius: 100vw;
+}
+
+nav {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  min-width: 8vh;
+  z-index: 9999;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--clr-black);
+  border-bottom: var(--clr-yellow) 3px solid;
+}
+nav .logo img { 
+  height: 70px;
+  cursor: pointer;
+}
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+}
+.nav-links a {
+  margin-right: 20px;
+  font-weight: var(--fw-bold);
+  font-size: 18px;
+  text-transform: uppercase;
+  color: var(--clr-white);
+}
+.nav-links a:hover {
+  color: var(--clr-yellow);
+}
+.burger-button {
+  display: none;
+}
+.burger-button div {
+  width: 25px;
+  height: 3px;
+  margin: 5px;
+  background-color: var(--clr-yellow);
+  transition: all 0.3s ease;
+}
+
+@media screen and (max-width: 768px) {
+  .burger-button {
+    display: block;
+    cursor: pointer;
+  }
+  .nav-links {
+    display: flex;
+    position: fixed;
+    right: 0px;
+    top: 6vh;
+    width: 50%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    flex-direction: column;
+    align-items: center;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in;
+  }
+  .nav-links li {
+    opacity: 0;
+  }
+  .nav-active {
+    transform: translateX(0%);
+  }
+
+  @keyframes navLinkFade {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  .toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+  .toggle .line2 {
+    opacity: 0;
+  }
+  .toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+}
+#showcase {
+  height: 100vh;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, .3);
+}
+#showcase .message {
+  color: var(--clr-yellow);
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+#showcase h1 {
+  font-size: 45px;
+}
+#showcase h2 {
+  font-size: 35px;
+  font-weight: var(--fw-bold);
+}
+#about {
+  margin: 20px 0 100px 0;
+  padding-top: 80px;
+  text-align: justify;
+}
+#about h2 {
+  font-weight: var(--fw-bold);
+  font-size: 30px;
+  text-transform: uppercase;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.7);;
+}
+.border {
+  width: auto;
+  height: 7px;
+  background: var(--clr-yellow);
+  margin: 20px auto;
+  border-radius: 15px;
+}
+#about .border {
+  width: 90%;
+}
+.sinevoice-movie iframe {
+  display: block;
+  padding-top: 50px;
+  margin: 0 auto;
+  width: 80%;
+  height: 600px;
+}
+#contact {
+  background: var(--clr-yellow);
+  color: rgba(0, 0, 0, 0.7);
+}
+#contact h2 {
+  padding-top: 10px;
+  text-align: center;
+}
+#contact .container {
+  width: 100%;
+}
+
+footer {
+  padding: 25px;
+  background-color: rgba(0, 0, 0, 0.9);
+  font-size: 16px;
+  text-align: center;
+  color: rgb(179, 179, 179);
+}
+footer a {
+  color: rgb(179, 179, 179);
+  font-size: 20px;
+  letter-spacing: 15px;
+}
+footer a:hover {
+  color:var(--clr-white);
+}
+
+/* GALLERY */
+#gallery {
+  width: 100%;
+  padding: 100px 0;
+}
+#gallery h1 {
+  font-weight: var(--fw-bold);
+  font-size: 30px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.7);
+}
+#gallery p {
+  text-align: center;
+  font-size: 20px;
+}
+.inner-width {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding-top: 0 20px;
+}
+.gallery {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: center;
+}
+.image {
+  flex: 25%;
+  overflow: hidden;
+  cursor: pointer;
+}
+.image img {
+  width: 100%;
+  height: 100%;
+  transition: 0.6s;
+}
+.image:hover img {
+  transform: scale(1.5);
+}
+
+/* DESKTOP */
+@media (min-width: 1025px) {
+  .container {
+    width: 80%;
+  }
+  #showcase {
+    background: url("../images/sinevoice-zvucnici.jpg");
+    background-size: cover;
+  }
+  #contact h2 {
+    font-size: 30px;
+    padding-top: 20px;
+  }
+  .contact-one {
+    float: left;
+    font-size: 18px;
+    margin-top: 200px;
+  }
+  .contact-two {
+    float: right;
+    width: auto;
+    margin: 50px 0 50px 0;
+  }
+  #contact .container {
+    width: 90%;
+  }
+}
+
+/* TABLET*/
+@media (min-width: 480px) and (max-width: 1025px) {
+  nav .logo img {
+    height: 55px;
+  }
+  .nav-links a {
+    font-size: 16px;
+  }
+  #showcase {
+    background: url("../images/sinevoice-personal-sound-zvucnik.jpg");
+    background-size: cover;
+  }
+  #showcase h1 {
+    font-size: 30px;
+  }
+  #showcase h2 {
+    font-size: 20px;
+  }
+  #about iframe {
+    width: 100%;
+    height: 400px;
+    padding-top: 30px;
+  }
+  #contact h2 {
+    font-size: 22px;
+  }
+  .contact-one {
+    font-size: 16px;
+    margin: 10px;
+  }
+  .contact-two iframe {
+    width: 100%;
+    height: 350px;
+  }
+  footer {
+    padding: 20px;
+  }
+  footer a {
+    font-size: 18px;
+    letter-spacing: 20px;
+  }
+  #gallery .image {
+    flex: 50%;
+  }
+  #gallery h1 {
+    font-size: 25px;
+  }
+  #gallery p {
+    font-size: 18px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+  nav .logo img {
+    height: 45px;
+  }
+  .nav-links a {
+    font-size: 14px;
+  }
+  #showcase {
+    background-image: url("../images/sinevoice-personal-sound-zvucnici.jpg");
+    background-size: cover;
+  }
+  #showcase h1 {
+    font-size: 28px;
+  }
+  #showcase h2 {
+    font-size: 18px;
+  }
+  #about {
+    margin: 50px 0 50px 0;
+  }
+  #about h2 {
+    font-size: 22px;
+  }
+  #about iframe {
+    width: 100%;
+    height: 200px;
+    padding-top: 30px;
+  }
+  #contact h2 {
+    font-size: 18px;
+  }
+  .contact-one {
+    font-size: 14px;
+    margin: 10px;
+  }
+  .contact-two iframe {
+    width: 100%;
+    height: 100%;
+  }
+  footer {
+    padding: 20px;
+    font-size: 14px;
+  }
+  footer a {
+    font-size: 15px;
+    letter-spacing: 10px;
+  }
+  #gallery .image {
+    flex: 100%;
+  }
+  #gallery h1 {
+    font-size: 18px;
+  }
+  #gallery p {
+    font-size: 14px;
+  }
+}
+
